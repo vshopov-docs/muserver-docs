@@ -1,8 +1,7 @@
 <!DOCTYPE html
   SYSTEM "about:legacy-compat">
 <html lang="en"><head><meta charset="UTF-8"><meta name="copyright" content="(C) Copyright 2025"><meta name="generator" content="DITA-OT"><title>Understand the server architecture</title><link rel="stylesheet" type="text/css" href="commonltr.css"></head><body id="server_architecture"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
-<link rel="stylesheet" type="text/css" href="mu-docs.css"/>
-  <h1 class="title topictitle1" id="ariaid-title1">Understand the server architecture </h1>
+  <h1 class="title topictitle1" id="ariaid-title1">Understand the server architecture</h1>
 
   <div class="body conbody">
     <p class="p">MuOnline's server architecture separates connection handling,
@@ -21,7 +20,7 @@
         database and forwards the client to the Game Server.</li>
 
         <li class="li">The Game Server requests character information from the Data
-        Server and the player loads into the game world. </li>
+        Server and the player loads into the game world.</li>
       </ol></div>
 
     <p class="p">After login, the Game Server continuously communicates with the Data
@@ -29,10 +28,10 @@
     connected.</p>
 
     <div class="p">This distributed architecture provides several benefits:<ul class="ul">
-        <li class="li"><strong class="ph b">Security</strong>: The database is not exposed to the Internet. It's
-        accessed only by two components, for two distinct purposes: the Join
-        Server validates account credentials, and the Data Server handles game
-        data.</li>
+        <li class="li"><strong class="ph b">Security</strong> - The database is not exposed to the Internet.
+        It's accessed only by two components, for two distinct purposes: the
+        Join Server validates account credentials, and the Data Server handles
+        game data.</li>
 
         <li class="li"><strong class="ph b">Availability</strong> - If one component stops working, the others
         continue operating independently.</li>
@@ -44,6 +43,4 @@
         troubleshooting, monitoring, and scaling.</li>
       </ul></div>
   </div>
-</article></main></body>
-<aside id="nav"></aside><script src="nav.js"></script>
-</html>
+</article></main></body></html>
