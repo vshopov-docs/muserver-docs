@@ -1,0 +1,46 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="copyright" content="(C) Copyright 2025"><meta name="generator" content="DITA-OT"><title>Understand the server architecture</title><link rel="stylesheet" type="text/css" href="commonltr.css"></head><body id="server_architecture"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Understand the server architecture </h1>
+
+  <div class="body conbody">
+    <p class="p">MuOnline's server architecture separates connection handling,
+    authentication, data management, and game logic into distinct services.
+    The following diagram illustrates connection and data flow in a typical
+    game session:</p>
+
+    <img class="image" src="images/muserver_architecture.jpg" alt="The MuOnline server architecture contains a Connect Server, Join Server, Game Server, and a Data Server.">
+
+    <div class="p">When you start the client:<ol class="ol">
+        <li class="li">The client establishes a connection to the Connect Server. The
+        Connect Server validates the client and forwards it to the Join
+        Server.</li>
+
+        <li class="li">The Join Server checks the provided login credentials against the
+        database and forwards the client to the Game Server.</li>
+
+        <li class="li">The Game Server requests character information from the Data
+        Server and the player loads into the game world. </li>
+      </ol></div>
+
+    <p class="p">After login, the Game Server continuously communicates with the Data
+    Server to update character and world data while the client remains
+    connected.</p>
+
+    <div class="p">This distributed architecture provides several benefits:<ul class="ul">
+        <li class="li"><strong class="ph b">Security</strong>: The database is not exposed to the Internet. It's
+        accessed only by two components, for two distinct purposes: the Join
+        Server validates account credentials, and the Data Server handles game
+        data.</li>
+
+        <li class="li"><strong class="ph b">Availability</strong> - If one component stops working, the others
+        continue operating independently.</li>
+
+        <li class="li"><strong class="ph b">Performance</strong> - Separating SQL operations from game logic
+        helps the Game Server run faster and remain stable.</li>
+
+        <li class="li"><strong class="ph b">Maintenance</strong> - Having modular components simplifies
+        troubleshooting, monitoring, and scaling.</li>
+      </ul></div>
+  </div>
+</article></main></body></html>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+"task.dtd">
+<task id="restore_db">
+  <title>Restore the Mu Server database</title>
+
+  <taskbody>
+    <prereq><p>To restore the server database, you must have administrative
+    access to an SQL instance. This guide assumes SQL Server is already
+    installed and accessible on your system.</p></prereq>
+
+    <context><p>You can restore the server database using the Microsoft SQL
+    Server Management Studio or an SQL query. </p><p>To restore with the SQL
+    Server Management Studio:</p></context>
+
+    <steps>
+      <step>
+        <cmd>Log into your SQL instance through SQL Server Management
+        Studio.</cmd>
+      </step>
+
+      <step>
+        <cmd>Right click <uicontrol>Databases</uicontrol> in the
+        <uicontrol>Object Explorer</uicontrol> window and select
+        <uicontrol>Restore Database...</uicontrol>.</cmd>
+      </step>
+
+      <step>
+        <cmd>Select the <uicontrol>Device</uicontrol> radio button and click
+        the <uicontrol>ellipsis (...)</uicontrol> button. This opens the
+        <uicontrol>Select backup device</uicontrol> window.</cmd>
+      </step>
+
+      <step>
+        <cmd>In the <uicontrol>Select backup device</uicontrol> window, click
+        <uicontrol>Add</uicontrol>, browse to the location of MuOnline.bak on
+        your system, and confirm your selection.</cmd>
+      </step>
+
+      <step>
+        <cmd>Select <uicontrol>Files</uicontrol> in the <uicontrol>Select a
+        page</uicontrol> panel.</cmd>
+      </step>
+
+      <step>
+        <cmd>Mark the <uicontrol>Relocate all files</uicontrol> to folder
+        check box and verify that the file paths to your .mdf and .ldf files
+        are correct.</cmd>
+      </step>
+
+      <step>
+        <cmd>Click <uicontrol>OK</uicontrol>.</cmd>
+      </step>
+    </steps>
+
+    <result><p>When the restore completes, the MuOnline database appears under
+    <uicontrol>Databases</uicontrol> in your <uicontrol>Object
+    Explorer</uicontrol> window.</p></result>
+
+    <postreq><p>Alternatively, use the following SQL query for scripting or
+    automation purposes:</p> <codeblock>RESTORE DATABASE MuOnline
+FROM DISK = 'C:\path\to\MuOnline.bak'
+WITH MOVE 'MuOnline' TO 'C:\Program Files\Microsoft SQL Server\MSSQL\Data\MuOnline.mdf',
+MOVE 'MuOnline_log' TO 'C:\Program Files\Microsoft SQL Server\MSSQL\Data\MuOnline_log.ldf'</codeblock></postreq>
+  </taskbody>
+</task>

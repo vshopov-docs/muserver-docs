@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+"concept.dtd">
+<concept id="get_mu_server_running">
+  <title>Get your Mu Server running</title>
+
+  <conbody>
+    <p>Before starting your Mu Server, you need to restore the server
+    database, configure your environment, and set up the server components.
+    This section guides you through each step.</p>
+  </conbody>
+</concept>

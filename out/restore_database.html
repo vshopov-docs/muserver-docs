@@ -1,0 +1,51 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="copyright" content="(C) Copyright 2025"><meta name="generator" content="DITA-OT"><title>Restore the Mu Server database</title><link rel="stylesheet" type="text/css" href="commonltr.css"></head><body id="restore_db"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Restore the Mu Server database</h1>
+
+  <div class="body taskbody">
+    <section class="section prereq"><p class="p">To restore the server database, you must have administrative
+    access to an SQL instance. This guide assumes SQL Server is already
+    installed and accessible on your system.</p></section>
+
+    <section class="section context"><p class="p">You can restore the server database using the Microsoft SQL
+    Server Management Studio or an SQL query. </p><p class="p">To restore with the SQL
+    Server Management Studio:</p></section>
+
+    <section><ol class="ol steps"><li class="li step">
+        <span class="ph cmd">Log into your SQL instance through SQL Server Management
+        Studio.</span>
+      </li><li class="li step">
+        <span class="ph cmd">Right click <span class="ph uicontrol">Databases</span> in the
+        <span class="ph uicontrol">Object Explorer</span> window and select
+        <span class="ph uicontrol">Restore Database...</span>.</span>
+      </li><li class="li step">
+        <span class="ph cmd">Select the <span class="ph uicontrol">Device</span> radio button and click
+        the <span class="ph uicontrol">ellipsis (...)</span> button. This opens the
+        <span class="ph uicontrol">Select backup device</span> window.</span>
+      </li><li class="li step">
+        <span class="ph cmd">In the <span class="ph uicontrol">Select backup device</span> window, click
+        <span class="ph uicontrol">Add</span>, browse to the location of MuOnline.bak on
+        your system, and confirm your selection.</span>
+      </li><li class="li step">
+        <span class="ph cmd">Select <span class="ph uicontrol">Files</span> in the <span class="ph uicontrol">Select a
+        page</span> panel.</span>
+      </li><li class="li step">
+        <span class="ph cmd">Mark the <span class="ph uicontrol">Relocate all files</span> to folder
+        check box and verify that the file paths to your .mdf and .ldf files
+        are correct.</span>
+      </li><li class="li step">
+        <span class="ph cmd">Click <span class="ph uicontrol">OK</span>.</span>
+      </li></ol></section>
+
+    <section class="section result"><p class="p">When the restore completes, the MuOnline database appears under
+    <span class="ph uicontrol">Databases</span> in your <span class="ph uicontrol">Object
+    Explorer</span> window.</p></section>
+
+    <section class="section postreq"><p class="p">Alternatively, use the following SQL query for scripting or
+    automation purposes:</p> <pre class="pre codeblock"><code>RESTORE DATABASE MuOnline
+FROM DISK = 'C:\path\to\MuOnline.bak'
+WITH MOVE 'MuOnline' TO 'C:\Program Files\Microsoft SQL Server\MSSQL\Data\MuOnline.mdf',
+MOVE 'MuOnline_log' TO 'C:\Program Files\Microsoft SQL Server\MSSQL\Data\MuOnline_log.ldf'</code></pre></section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="get_mu_server_running.html">Get your Mu Server running</a></div></div></nav></article></main></body></html>

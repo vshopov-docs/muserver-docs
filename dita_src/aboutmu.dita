@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+"concept.dtd">
+<concept id="aboutmu">
+  <title>About this guide</title>
+
+  <conbody>
+    <p>Mu Online is one of the first MMORPG games from the South Korean
+    developer and publisher Webzen. The game uses a modular server-client
+    architecture to ensure high availability and scalability. This guide
+    explains how the server components interact with each other and how to set
+    up and configure your own local server instance for single-player testing
+    and exploration.</p>
+  </conbody>
+</concept>

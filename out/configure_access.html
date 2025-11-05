@@ -1,0 +1,25 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="copyright" content="(C) Copyright 2025"><meta name="generator" content="DITA-OT"><title>Configure database access</title><link rel="stylesheet" type="text/css" href="commonltr.css"></head><body id="configure_access"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Configure database access</h1>
+
+  <div class="body taskbody">
+    <section class="section context"><p class="p">The Data Server, Join Server, and Connect Server use System
+    Data Source Names (DSNs) to access the MuOnline database. The server pack
+    provides registry files to create the necessary System DSNs. To add the
+    registry files:</p></section>
+
+    <section><ol class="ol steps"><li class="li step">
+        <span class="ph cmd">Browse to <span class="ph filepath">ServerFolder/DB/</span>. There are two
+        registry files there - <span class="ph filepath">MuOnline.reg</span> and
+        <span class="ph filepath">MuOnline64.reg</span>.</span>
+      </li><li class="li step">
+        <span class="ph cmd">Right click each file and click
+        <span class="ph uicontrol">Merge</span>.</span>
+      </li></ol></section>
+
+    <section class="section result"><p class="p">This creates the system DSNs that the server components use to
+    access the databases. You can check if they are there and if they work
+    through the Windows ODBC Data Administrator.</p></section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="get_mu_server_running.html">Get your Mu Server running</a></div></div></nav></article></main></body></html>

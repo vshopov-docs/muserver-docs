@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+"concept.dtd">
+<concept id="server_architecture">
+  <title>Understand the server architecture </title>
+
+  <conbody>
+    <p>MuOnline's server architecture separates connection handling,
+    authentication, data management, and game logic into distinct services.
+    The following diagram illustrates connection and data flow in a typical
+    game session:</p>
+
+    <image alt="The MuOnline server architecture contains a Connect Server, Join Server, Game Server, and a Data Server."
+           href="images/muserver_architecture.jpg"/>
+
+    <p>When you start the client:<ol>
+        <li>The client establishes a connection to the Connect Server. The
+        Connect Server validates the client and forwards it to the Join
+        Server.</li>
+
+        <li>The Join Server checks the provided login credentials against the
+        database and forwards the client to the Game Server.</li>
+
+        <li>The Game Server requests character information from the Data
+        Server and the player loads into the game world. </li>
+      </ol></p>
+
+    <p>After login, the Game Server continuously communicates with the Data
+    Server to update character and world data while the client remains
+    connected.</p>
+
+    <p>This distributed architecture provides several benefits:<ul>
+        <li><b>Security</b>: The database is not exposed to the Internet. It's
+        accessed only by two components, for two distinct purposes: the Join
+        Server validates account credentials, and the Data Server handles game
+        data.</li>
+
+        <li><b>Availability</b> - If one component stops working, the others
+        continue operating independently.</li>
+
+        <li><b>Performance</b> - Separating SQL operations from game logic
+        helps the Game Server run faster and remain stable.</li>
+
+        <li><b>Maintenance</b> - Having modular components simplifies
+        troubleshooting, monitoring, and scaling.</li>
+      </ul></p>
+  </conbody>
+</concept>

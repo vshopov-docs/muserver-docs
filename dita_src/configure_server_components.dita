@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+"task.dtd">
+<task id="configure_server_components">
+  <title>Configure the server components</title>
+
+  <taskbody>
+    <context><p>The Mu Server components communicate with each other over the
+    network, using connection details from their individual configuration
+    files. They interact as follows:<ul>
+        <li>The Connect Server and the Join Server must know each other's IP
+        addresses and ports. They also use the ODBC System DSN to validate
+        client account information in the database.</li>
+
+        <li>The Connect Server must also know the Game Server's IP
+        address.</li>
+
+        <li>The Data Server requires the ODBC System DSN to connect to the
+        database.</li>
+      </ul></p><p>To verify each component's configuration file:</p></context>
+
+    <steps>
+      <step>
+        <cmd>Navigate to the .ini file of each component in
+        <filepath>ServerFolder/<varname>component</varname></filepath>.</cmd>
+      </step>
+
+      <step>
+        <cmd>Edit the configuration file with a text editor. Verify that each
+        component has the correct IPs, ports and System DSN.</cmd>
+      </step>
+    </steps>
+  </taskbody>
+</task>

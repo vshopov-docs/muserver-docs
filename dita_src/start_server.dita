@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+"task.dtd">
+<task id="start_server">
+  <title>Start your Mu Server</title>
+
+  <taskbody>
+    <context><p>The server pack provides a start-up tool in
+    <filepath>ServerFolder/StartUp</filepath>. The tool is preconfigured to
+    the relative paths of each of the components and is set to start each
+    server component in sequence with a 1000ms pause between
+    them.</p><p>Always start the Mu Server components in the following order
+    to ensure that each one initializes its connections correctly. The correct
+    order is:</p><ol>
+        <li>Connect Server</li>
+
+        <li>Join Server</li>
+
+        <li>Data Server</li>
+
+        <li>Game Server</li>
+      </ol> <p>To start your server with the StartUp tool:</p></context>
+
+    <steps>
+      <step>
+        <cmd>Launch
+        <filepath>ServerFolder/StartUp/StartUp.exe</filepath></cmd>
+      </step>
+
+      <step>
+        <cmd>Click the green arrow button.</cmd>
+      </step>
+    </steps>
+
+    <result><p> The tool starts the server components automatically. When the
+    console of each component prints "Active Mode", your server is
+    live.</p></result>
+  </taskbody>
+</task>

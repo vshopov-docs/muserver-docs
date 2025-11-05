@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE task PUBLIC "-//OASIS//DTD DITA Task//EN"
+"task.dtd">
+<task id="configure_access">
+  <title>Configure database access</title>
+
+  <taskbody>
+    <context><p>The Data Server and Join Server use System Data Source Names
+    (DSNs) to access the MuOnline database. The server pack provides registry
+    files to create the necessary System DSNs. To add the registry
+    files:</p></context>
+
+    <steps>
+      <step>
+        <cmd>Browse to <filepath>ServerFolder/DB/</filepath>. There are two
+        registry files there - <filepath>MuOnline.reg</filepath> and
+        <filepath>MuOnline64.reg</filepath>.</cmd>
+      </step>
+
+      <step>
+        <cmd>Right click each file and click
+        <uicontrol>Merge</uicontrol>.</cmd>
+      </step>
+    </steps>
+
+    <result><p>This creates the system DSNs that the server components use to
+    access the databases. You can check if they are there and if they work
+    through the Windows ODBC Data Administrator.</p></result>
+  </taskbody>
+</task>

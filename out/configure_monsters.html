@@ -1,0 +1,326 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="copyright" content="(C) Copyright 2025"><meta name="generator" content="DITA-OT"><title>Configure monsters</title><link rel="stylesheet" type="text/css" href="commonltr.css"></head><body id="configure_monsters"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Configure monsters</h1>
+
+  <div class="body refbody">
+    <section class="section"><p class="p">Monster configurations are in the text files in the
+    directories <span class="ph filepath">ServerFolder/Data/Monster</span> and
+    <span class="ph filepath">ServerFolder/Data/MonsterSetBase</span>.</p></section>
+
+    <section class="section"><h2 class="title sectiontitle">Monster.txt</h2><p class="p">Monster.txt contains the base
+    monster statistics and the monster IDs. Other configuration files
+    reference the monster IDs.</p><table class="table"><caption><span class="table--title-label">Table 1. </span><span class="title">Monster.txt properties</span></caption><colgroup><col><col></colgroup><thead class="thead">
+            <tr class="row">
+              <th class="entry" id="configure_monsters__entry__1">Property</th>
+
+              <th class="entry" id="configure_monsters__entry__2">Description</th>
+            </tr>
+          </thead><tbody class="tbody">
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">Index</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">The monster's internal ID. Other configuration files
+              reference this ID when they want to spawn the monster. Must be
+              unique.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">Rate</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">Legacy property. Spawn rate - used when multiple scripts
+              try to spawn monsters. Not relevant currently because spawn
+              logic is handled elsewhere. Leave at 1.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">Name</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">The monster's display name. Used in the client and
+              logs.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">Level</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">The monster's level. This affects experience yield, drop
+              tables and relative combat difficulty.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">MaxLife</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">Maximum hit points. The amount of damage a monster has to
+              take before it dies.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">MaxMana</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">Maximum mana points. Used by spellcasting monsters, 0 for
+              non-spellcasters.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">DamageMin</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">The minimum damage the monster inflicts on
+              attack.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">DamageMax</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">The maximum damage the monster inflicts on
+              attack.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">Defense</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">Physical defense value used to calculate damage
+              reduction</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">MagicDefense</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">Magical defense value used to calculate damage
+              reduction.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">AttackRate</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">Used in hit chance calculations against player
+              defense.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">DefenseRate</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">Used in hit chance calculations against player
+              attack.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">MoveRange</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">Maximum movement range from the spawn point in tiles.
+              Prevents monsters wandering too far.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">AttackType</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">Defines how the monster engages in combat. 0 = Melee, 1 =
+              Ranged, 2 = Spellcaster.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">AttackRange</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">Maximum range at which a monster can attack.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">ViewRange</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">The range at which the monster notices players.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">MoveSpeed</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">Determines how fast the monster moves.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">AttackSpeed</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">Delay between attacks. A lower value = faster
+              attacks.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">RegenTime</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">Monster respawn delay in seconds.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">Attribute</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">Elemental attribute. 0 = Earth, 1 = Fire, 2 = Water, 3 =
+              Wind, 4 = Dark.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">ItemRate</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">Modifier for the overall item drop chance.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">MoneyRate</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">Modifier for the amount of dropped Zen.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">MaxItemLevel</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">The maximum level item the monster can drop.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">MonsterSkill</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">Skill ID that the monster uses.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__1">Resistance1-4</td>
+
+              <td class="entry" headers="configure_monsters__entry__2">Amount of resistance for different elements. 1 is ice, 2
+              is poison, 3 is lightning and fire, 4 is earth and wind. The
+              value is a modification applied on the final damage, where 0 is
+              full damage is 255 is no damage.</td>
+            </tr>
+          </tbody></table><p class="p"><strong class="ph b">Example:</strong></p><pre class="pre codeblock"><code>Index Rate Name Level MaxLife MaxMana DamageMin Damage Max Defense MagicDefense AttackRate DefenseRate MoveRange AttackType AttackRange ViewRange MoveSpeed AttackSpeed RegenTime Attribute ItemRate MoneyRate MaxItemLevel MonsterSkill Resistance1 Resistance2 Resistance3 Resistance4
+0 1 "Bull Fighter" 6 100 0 16 20 6 0 28 6 3 0 1 5 400 1600 10 2 130 20 6 0 0 0 0</code></pre></section>
+
+    <section class="section"><h2 class="title sectiontitle">MonsterSetBase</h2><p class="p">The
+    <span class="ph filepath">MonsterSetBase</span> folder contains one .txt file for each
+    zone in the game. Each .txt file contains spawn points for both friendly
+    NPCs and hostile monsters. You can specify spawn points either as exact
+    coordinates or as a rectangular areas where monsters spawn at random
+    positions.</p><table class="table"><caption><span class="table--title-label">Table 2. </span><span class="title">NPC spawn properties</span></caption><colgroup><col><col></colgroup><thead class="thead">
+            <tr class="row">
+              <th class="entry align-center" id="configure_monsters__entry__53">Property</th>
+
+              <th class="entry align-center" id="configure_monsters__entry__54">Description</th>
+            </tr>
+          </thead><tbody class="tbody">
+            <tr class="row">
+              <th scope="row" class="entry" id="configure_monsters__entry__55" headers="configure_monsters__entry__53">Monster</th>
+
+              <td class="entry" headers="configure_monsters__entry__55 configure_monsters__entry__54">Monster ID. Those are listed in Monster.txt</td>
+            </tr>
+
+            <tr class="row">
+              <th scope="row" class="entry" id="configure_monsters__entry__57" headers="configure_monsters__entry__53">MapNumber</th>
+
+              <td class="entry" headers="configure_monsters__entry__57 configure_monsters__entry__54">Zone ID. Those are listed in MapManager.txt</td>
+            </tr>
+
+            <tr class="row">
+              <th scope="row" class="entry" id="configure_monsters__entry__59" headers="configure_monsters__entry__53">Range</th>
+
+              <td class="entry" headers="configure_monsters__entry__59 configure_monsters__entry__54">Defines randomization within the spawn position when used
+              with a fixed spawn point, and distance between spawns in area
+              spawn points.</td>
+            </tr>
+
+            <tr class="row">
+              <th scope="row" class="entry" id="configure_monsters__entry__61" headers="configure_monsters__entry__53">PositionX</th>
+
+              <td class="entry" headers="configure_monsters__entry__61 configure_monsters__entry__54">Exact X coordinates for the spawn point.</td>
+            </tr>
+
+            <tr class="row">
+              <th scope="row" class="entry" id="configure_monsters__entry__63" headers="configure_monsters__entry__53">PositionY</th>
+
+              <td class="entry" headers="configure_monsters__entry__63 configure_monsters__entry__54">Exact Y coordinates for the spawn point.</td>
+            </tr>
+
+            <tr class="row">
+              <th scope="row" class="entry" id="configure_monsters__entry__65" headers="configure_monsters__entry__53">Direction</th>
+
+              <td class="entry" headers="configure_monsters__entry__65 configure_monsters__entry__54">Defines which direction the NPC faces when spawned. -1
+              value = random direction.</td>
+            </tr>
+
+            <tr class="row">
+              <th scope="row" class="entry" id="configure_monsters__entry__67" headers="configure_monsters__entry__53">Comment</th>
+
+              <td class="entry" headers="configure_monsters__entry__67 configure_monsters__entry__54">Helpful reminder for debugging and configuration.</td>
+            </tr>
+          </tbody></table><p class="p"><strong class="ph b">Example:</strong></p><pre class="pre codeblock"><code>Monster MapNumber Range PositionX PositionY Direction Comment
+230 00 00 062 130 03 //Wandering Merchant Alex</code></pre><table class="table"><caption><span class="table--title-label">Table 3. </span><span class="title">Monster spawn properties</span></caption><colgroup><col><col></colgroup><thead class="thead">
+            <tr class="row">
+              <th class="entry align-center" id="configure_monsters__entry__69">Property</th>
+
+              <th class="entry align-center" id="configure_monsters__entry__70">Description</th>
+            </tr>
+          </thead><tbody class="tbody">
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__69">Monster</td>
+
+              <td class="entry" headers="configure_monsters__entry__70">Monster ID. Those are listed in Monster.txt</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__69">MapNumber</td>
+
+              <td class="entry" headers="configure_monsters__entry__70">Zone Id. Those are listed in MapManager.txt</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__69">Range</td>
+
+              <td class="entry" headers="configure_monsters__entry__70">Defines randomization within the spawn position when used
+              with a fixed spawn and distance between spawns when used in area
+              spawn points.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__69">BeginPosX</td>
+
+              <td class="entry" headers="configure_monsters__entry__70">The starting X position of a rectangular area spawn
+              point.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__69">BeginPosY</td>
+
+              <td class="entry" headers="configure_monsters__entry__70">The starting Y position of a rectangular area spawn
+              point.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__69">EndPostX</td>
+
+              <td class="entry" headers="configure_monsters__entry__70">The ending X position of a rectangular area spawn
+              point.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__69">EndPostY</td>
+
+              <td class="entry" headers="configure_monsters__entry__70">The ending Y position of a rectangular area spawn
+              point.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__69">Direction</td>
+
+              <td class="entry" headers="configure_monsters__entry__70">Defines which direction the monster faces when spawned.
+              -1 value = random direction.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__69">Quantity</td>
+
+              <td class="entry" headers="configure_monsters__entry__70">Defines how many monsters are spawned in the spawn
+              point.</td>
+            </tr>
+
+            <tr class="row">
+              <td class="entry" headers="configure_monsters__entry__69">Comment</td>
+
+              <td class="entry" headers="configure_monsters__entry__70">Helpful reminder for debugging and configuration.</td>
+            </tr>
+          </tbody></table></section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="configure_gameworld.html">Configure your game world</a></div></div></nav></article></main></body></html>

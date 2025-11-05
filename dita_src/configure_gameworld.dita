@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE concept PUBLIC "-//OASIS//DTD DITA Concept//EN"
+"concept.dtd">
+<concept id="configure_game_world">
+  <title>Configure your game world</title>
+
+  <conbody>
+    <p>The game world configurations exist in two directories -
+    <filepath>ServerFolder/Data</filepath> and
+    <filepath>ServerFolder/GameServer/Data</filepath>.</p>
+
+    <p>In your game world, you can configure:</p>
+
+    <ul>
+      <li>Monsters: Stats, Spawn points</li>
+
+      <li>Invasions and events: Rate, amount, rewards</li>
+
+      <li>Items: Stats, drop rate, drop groups</li>
+
+      <li>Characters: Stats, skills, PvP balance, experience rate</li>
+    </ul>
+
+    <p>This section guides you through how the configurations work and how to
+    change them.</p>
+  </conbody>
+</concept>

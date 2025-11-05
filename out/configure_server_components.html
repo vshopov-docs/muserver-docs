@@ -1,0 +1,29 @@
+<!DOCTYPE html
+  SYSTEM "about:legacy-compat">
+<html lang="en"><head><meta charset="UTF-8"><meta name="copyright" content="(C) Copyright 2025"><meta name="generator" content="DITA-OT"><title>Configure the server components</title><link rel="stylesheet" type="text/css" href="commonltr.css"></head><body id="configure_server_components"><main role="main"><article role="article" aria-labelledby="ariaid-title1">
+  <h1 class="title topictitle1" id="ariaid-title1">Configure the server components</h1>
+
+  <div class="body taskbody">
+    <section class="section context"><div class="p">The Mu Server components communicate with each other over the
+    network, using connection details from their individual configuration
+    files. They interact as follows:<ul class="ul">
+        <li class="li">The Connect Server and the Join Server must know each other's IP
+        addresses and ports. They also use the ODBC System DSN to validate
+        client account information in the database.</li>
+
+        <li class="li">The Connect Server must also know the Game Server's IP
+        address.</li>
+
+        <li class="li">The Data Server requires the ODBC System DSN to connect to the
+        database.</li>
+      </ul></div><p class="p">To verify each component's configuration file:</p></section>
+
+    <section><ol class="ol steps"><li class="li step">
+        <span class="ph cmd">Navigate to the .ini file of each component in
+        <span class="ph filepath">ServerFolder/<var class="keyword varname">component</var></span>.</span>
+      </li><li class="li step">
+        <span class="ph cmd">Edit the configuration file with a text editor. Verify that each
+        component has the correct IPs, ports and System DSN.</span>
+      </li></ol></section>
+  </div>
+<nav role="navigation" class="related-links"><div class="familylinks"><div class="parentlink"><strong>Parent topic:</strong> <a class="link" href="get_mu_server_running.html">Get your Mu Server running</a></div></div></nav></article></main></body></html>
