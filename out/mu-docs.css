@@ -1,0 +1,202 @@
+/* mu-docs.css – portfolio theme with manual sidebar nav and better code blocks */
+
+:root {
+  --bg: #f9fafb;
+  --card: #ffffff;
+  --line: #e5e7eb;
+  --text: #1e293b;
+  --muted: #64748b;
+  --brand: #0284c7;
+  --brand-hover: #0369a1;
+  --nav-bg: #f1f5f9;
+  --nav-active: #e0f2fe;
+  --font-sans: system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  --font-mono: ui-monospace,Menlo,Consolas,monospace;
+}
+
+/* -------- Base layout -------- */
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: block;              /* avoid flex quirks with commonltr */
+  background: var(--bg);
+  color: var(--text);
+  font: 16px/1.6 var(--font-sans);
+}
+
+/* -------- Sidebar (manual #nav injected by nav.js) -------- */
+#nav {
+  position: fixed;
+  inset: 0 auto 0 0;           /* top:0; right:auto; bottom:0; left:0 */
+  width: 260px;
+  background: var(--nav-bg);
+  border-right: 1px solid var(--line);
+  padding: 1rem .75rem;
+  box-sizing: border-box;
+  overflow-y: auto;
+  z-index: 100;
+}
+.nav-error { color: #b91c1c; font-size: .95rem; }
+
+.side-nav h2 {
+  margin: .25rem 0 .75rem;
+  font: 700 1rem/1.2 var(--font-sans);
+  color: #0f172a;
+}
+.side-nav ul { list-style: none; margin: 0; padding: 0; }
+.side-nav > ul > li { margin-bottom: .5rem; }
+.side-nav li { margin: .15rem 0; }
+.side-nav a {
+  display: block;
+  padding: .35rem .5rem;
+  border-radius: 6px;
+  color: #0f172a;
+  text-decoration: none;
+}
+.side-nav a:hover { background: var(--nav-active); color: var(--brand-hover); }
+.side-nav a.active { background: var(--brand); color: #fff; }
+
+/* nested lists in nav */
+.side-nav ul ul {
+  margin-left: 1rem;
+  padding-left: .75rem;
+  border-left: 2px solid #e2e8f0;
+}
+.side-nav ul ul a { font-size: .95em; }
+
+/* -------- Main content area -------- */
+/* DITA-OT pages often use .body/.topic wrappers; shift them right of the fixed nav */
+main, .body, .topic, .nested0, .nested1 {
+  margin-left: 260px;
+  padding: 2rem 3rem;
+  background: var(--card);
+  max-width: 1100px;
+  box-shadow: 0 0 20px rgba(0,0,0,.03);
+  overflow-x: auto;            /* allow horizontal scroll for extreme content */
+}
+
+/* Headings & shortdesc */
+h1,h2,h3,h4 { line-height: 1.25; margin: 1.5em 0 .5em; }
+h1 { font-size: 2rem; margin-top: .25rem; }
+h2 { font-size: 1.5rem; }
+h3 { font-size: 1.25rem; }
+.shortdesc { color: var(--muted); margin: .25rem 0 1.25rem; }
+
+/* Links */
+a { color: var(--brand); }
+a:hover { color: var(--brand-hover); }
+
+/* Paragraphs / lists */
+p { margin: .8rem 0; }
+ul, ol { margin: .5rem 0 1rem 1.25rem; }
+li { margin: .25rem 0; }
+
+/* Images & diagrams scale nicely */
+img, .image, figure, svg {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 1rem auto;
+}
+figure figcaption, .figcap { color: var(--muted); font-size: .95rem; margin-top: .35rem; }
+
+/* Tables: nicer look + small-screen handling */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.25rem 0;
+  font-size: .95rem;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;            /* for rounded corners */
+  display: block;
+  overflow-x: auto;            /* horizontal scroll on narrow screens */
+}
+thead th {
+  background: #f1f5f9;
+  font-weight: 700;
+}
+th, td {
+  border-bottom: 1px solid var(--line);
+  padding: .6rem .75rem;
+  text-align: left;
+  vertical-align: top;
+}
+tbody tr:hover { background: #f8fafc; }
+
+/* Code & preformatted blocks */
+code, kbd, samp {
+  font-family: var(--font-mono);
+  font-size: .95em;
+}
+p code, li code, td code {
+  background: #e2e8f0;
+  padding: .15rem .35rem;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+}
+
+/* Better code blocks */
+pre, .codeblock {
+  background: #0f172a;         /* dark slate */
+  color: #e5e7eb;
+  border: 1px solid #1f2937;
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  overflow: auto;               /* scroll for long lines */
+  margin: 1.1rem 0 1.4rem;
+}
+/* Ensure inner code doesn't add extra spacing */
+pre code { background: transparent; padding: 0; display: block; }
+
+/* Optional: soft-wrap long words without breaking layout */
+pre, .codeblock, pre code {
+  white-space: pre;             /* keep code formatting */
+  word-wrap: normal;
+  overflow-wrap: normal;
+}
+
+/* Notes / admonitions */
+.note {
+  border-left: 4px solid var(--brand);
+  background: #e0f2fe;
+  padding: .85rem 1rem;
+  border-radius: 8px;
+  margin: 1rem 0;
+}
+.note .notetitle { font-weight: 700; margin-bottom: .25rem; }
+
+/* Breadcrumbs / toc blocks if present (harmless if not) */
+.breadcrumb, .toc, nav.toc, #toc {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: .25rem 3rem 0;
+}
+
+/* HR, blockquote, footer */
+hr { border: 0; border-top: 1px solid var(--line); margin: 2rem 0; }
+blockquote {
+  margin: 1rem 0; padding: .5rem 1rem; border-left: 4px solid var(--brand);
+  background: #e0f2fe66;
+}
+.footer, .legalnotice, .copyright { color: var(--muted); font-size: .9rem; }
+
+/* -------- Responsive -------- */
+@media (max-width: 960px) {
+  #nav {
+    position: relative;
+    width: 100%;
+    height: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  main, .body, .topic, .nested0, .nested1 {
+    margin-left: 0;
+    padding: 1rem;
+    max-width: 100%;
+    box-shadow: none;
+  }
+  table { border-radius: 0; }
+}
