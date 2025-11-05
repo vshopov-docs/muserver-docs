@@ -66,15 +66,23 @@ body {
 .side-nav ul ul a { font-size: .95em; }
 
 /* -------- Main content area -------- */
-/* DITA-OT pages often use .body/.topic wrappers; shift them right of the fixed nav */
-main, .body, .topic, .nested0, .nested1 {
+/* only shift top-level content */
+body > main,
+body > .topic,
+body > .nested0,
+body > .nested1,
+body > .body {
   margin-left: 260px;
+}
+
+main, .body, .topic, .nested0, .nested1 {
   padding: 2rem 3rem;
   background: var(--card);
   max-width: 1100px;
   box-shadow: 0 0 20px rgba(0,0,0,.03);
-  overflow-x: auto;            /* allow horizontal scroll for extreme content */
+  overflow-x: auto;
 }
+
 
 /* Headings & shortdesc */
 h1,h2,h3,h4 { line-height: 1.25; margin: 1.5em 0 .5em; }
